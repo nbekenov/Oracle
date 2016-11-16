@@ -1,0 +1,16 @@
+SET SERVEROUTPUT ON
+declare 
+cursor get_cust
+is select * from TESTCUSTOMER;
+v_cust get_cust%ROWTYPE;
+begin
+open get_cust;
+loop
+exit when get_cust%NOTFOUND;
+fetch get_cust into v_cust;
+DBMS_OUTPUT.enable;
+DBMS_OUTPUT.put_line(v_cust.customerid);
+end loop;
+close get_cust;
+end;
+/
