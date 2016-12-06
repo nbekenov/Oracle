@@ -1,0 +1,27 @@
+Let’s assume that 'EMP' table is locked,
+
+
+SELECT object_id FROM dba_objects WHERE object_name='EMP';
+ OBJECT_ID
+----------
+   7401242
+If there are no locks present for the table 'EMP' this query won’t return any values.
+
+
+SELECT sid FROM v$lock WHERE id1=7401242
+SID
+----------
+   3434
+
+
+SELECT sid, serial# from v$session where sid=3434
+
+
+       SID    SERIAL#
+---------- ----------
+
+
+      3434      92193
+
+
+ALTER SYSTEM KILL SESSION '3434,92193' ;
