@@ -1,0 +1,14 @@
+set SERVEROUTPUT ON
+declare
+v_sql varchar2(36);
+table_does_not_exist EXCEPTION;
+PRAGMA EXCEPTION_INIT (table_does_not_exist, -942);
+begin
+v_sql:='select * from test';
+EXECUTE IMMEDIATE v_sql;
+Exception
+when table_does_not_exist
+then
+DBMS_OUTPUT.PUT_line('это сообщение из обработчика исключения код ошибки= ' || SQLCODE);
+DBMS_Output.Put_Line ('сообщение ошибки = '|| SQLERRM);
+end;
