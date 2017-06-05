@@ -28,7 +28,7 @@ n number;
 m number;
 state_name varchar2(36);
 begin
-  while a < 3
+  while a < &total
   loop
    SELECT round( dbms_random.value(1,10)) num 
     into n
@@ -59,3 +59,22 @@ begin
   end loop;
 end;
 commit;
+
+
+select * from test_table
+where 
+--FIRST_NAME='Igor'
+--and 
+LAST_NAME='LastName69';  
+
+
+
+
+select count(*) from TEST_TABLE;
+
+truncate table TEST_TABLE;
+
+
+create unique INDEX test_tabel_ix ON test_table (first_name,last_name);
+
+drop index test_tabel_ix;
