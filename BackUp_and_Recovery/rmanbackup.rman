@@ -1,0 +1,14 @@
+[oracle@localhost ~]$ cat rmanbackup.rman
+run
+{
+allocate channel ch1 device type disk format '/u01/app/oracle/oradata/%U';
+backup database;
+release channel ch1;
+}
+
+
+[oracle@localhost ~]$ cat runshellbackup.sh
+#!/bin/bash
+rman target / catalog rman/rman@oca12c @rmanbackup.rman
+
+
