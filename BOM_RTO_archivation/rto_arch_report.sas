@@ -32,7 +32,7 @@ where run_id=&max_run_id;
 by start_dttm;
 run;
 
-filename mail email to=(&USER_EMAIL) cc=(&ADMIN_EMAIL) subject="SAS MA Archivation results" content_type="text/html";
+filename mail email to=(&USER_EMAIL) cc=(&ADMIN_EMAIL) subject="SAS RTO Archivation results" content_type="text/html";
 ODS LISTING CLOSE;
 ODS HTML BODY=mail encoding='wcyrillic';
 
