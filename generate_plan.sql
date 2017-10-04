@@ -1,8 +1,9 @@
-SELECT DBMS_SQLTUNE.report_sql_detail(
-sql_id => 'gua1s8bsr0jyx',
-type => 'ACTIVE',
-report_level => 'ALL') AS report
-FROM dual;
+-- Как выполнялся запрос в html формате:
+      SELECT DBMS_SQLTUNE.report_sql_monitor(
+         sql_id       => '6k12ssfnxmd8k',
+         type         => 'HTML',
+         report_level => 'ALL') AS report
+      FROM dual;
 
 select dbid from v$database;
 select snap_id,
