@@ -17,6 +17,10 @@ DECLARE
     schem varchar2(9);
     problem_tab VARCHAR2(30);
 	
+	
+	
+	RTDM_CLIENT_ALTERNATIVES_ARCH
+	
     procedure DROP_TMP_IF_EXIST (table_name2 IN varchar2) 
     as 
     begin
@@ -79,7 +83,7 @@ DECLARE
             commit;   
           else
             if table_name2='NBO_OFFERS' then
-              execute immediate 'delete from RTDM_CDM.NBO_OFFERS where CREATE_DATE in ( select CREATE_DATE from MA_TEMP.NBO_OFFERS_TMP)';
+              execute immediate 'delete from RTDM_CDM.NBO_OFFERS where CREATE_DATE <= sysdate-'||arch_period2||'';
               commit;   
             end if; 
           end if;          
