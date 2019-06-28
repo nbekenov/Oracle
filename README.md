@@ -1,2 +1,3 @@
 # Oracle_scripts
-expirence from my work
+
+* The puprose of the repository is to collect all scripts related to Oracle DB.
