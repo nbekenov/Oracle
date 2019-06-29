@@ -1,1 +1,0 @@
-DROP PROCEDURE cdm.rtdm_tab_archivation; 
